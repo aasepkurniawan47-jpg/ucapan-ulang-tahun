@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>For Kekeii 💖</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ff9a9e, #a18cd1);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    overflow: hidden;
+}
+
+.card {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(12px);
+    padding: 30px;
+    border-radius: 20px;
+    width: 85%;
+    max-width: 420px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.2);
+}
+
+#text {
+    font-size: 20px;
+    min-height: 80px;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+/* hearts */
+.heart {
+    position: absolute;
+    font-size: 20px;
+    animation: float 6s linear infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(100vh);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-10vh);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <div id="text"></div>
+</div>
+
+<script>
+let texts = [
+    "Hai Kekeii 💖",
+    "Hari ini hari yang spesial banget...",
+    "Karena seseorang yang berarti lagi ulang tahun 🎂",
+    "HAPPY BIRTHDAY KEKEII 🎉💖",
+    "Semoga panjang umur dan sehat selalu ✨",
+    "I hope all your dreams come true 🌈",
+    "and all your problems are solved 🤍",
+    "Aku mungkin cuma teman...",
+    "Tapi aku selalu peduli sama kamu 💕",
+    "Aku senang bisa kenal kamu...",
+    "Kamu itu orang yang kuat, baik, dan spesial ✨",
+    "Kalau suatu hari kamu capek...",
+    "ingat ya, ada aku yang selalu dukung kamu 🤍",
+    "Semoga hari-hari kamu selalu penuh bahagia 💖",
+    "Terima kasih sudah jadi bagian dari hidupku 😊",
+    "I care about you, my friend 💕"
+];
+
+let i = 0;
+
+function showText() {
+    if (i < texts.length) {
+        let el = document.getElementById("text");
+        el.style.opacity = 0;
+
+        setTimeout(() => {
+            el.innerHTML = texts[i];
+            el.style.opacity = 1;
+            i++;
+        }, 500);
+    }
+}
+
+// tampil langsung pertama kali
+showText();
+
+// lanjut animasi
+setInterval(showText, 2500);
+
+/* hearts animation */
+setInterval(() => {
+    let heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (Math.random() * 20 + 10) + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 6000);
